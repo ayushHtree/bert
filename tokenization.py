@@ -122,7 +122,7 @@ def load_vocab(vocab_file):
   """Loads a vocabulary file into a dictionary."""
   vocab = collections.OrderedDict()
   index = 0
-  with tf.gfile.GFile(vocab_file, "r") as reader:
+  with tf.compat.v1.gfile.GFile(vocab_file, "r") as reader:
     while True:
       token = convert_to_unicode(reader.readline())
       if not token:
@@ -278,7 +278,7 @@ class BasicTokenizer(object):
         (cp >= 0x2B740 and cp <= 0x2B81F) or  #
         (cp >= 0x2B820 and cp <= 0x2CEAF) or
         (cp >= 0xF900 and cp <= 0xFAFF) or  #
-        (cp >= 0x2F800 and cp <= 0x2FA1F)):  #
+            (cp >= 0x2F800 and cp <= 0x2FA1F)):  #
       return True
 
     return False
@@ -391,7 +391,7 @@ def _is_punctuation(char):
   # Punctuation class but we treat them as punctuation anyways, for
   # consistency.
   if ((cp >= 33 and cp <= 47) or (cp >= 58 and cp <= 64) or
-      (cp >= 91 and cp <= 96) or (cp >= 123 and cp <= 126)):
+          (cp >= 91 and cp <= 96) or (cp >= 123 and cp <= 126)):
     return True
   cat = unicodedata.category(char)
   if cat.startswith("P"):
