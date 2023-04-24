@@ -1,8 +1,8 @@
 # BERT
 
-** This readme file only contains the changes done in the depreacted functions **
+**This readme file only contains the changes done in the depreacted functions**
 
-** To check the details of BERT you can checkout master branch **
+**To check the details of BERT you can checkout master branch**
 
 ## Changes done from tf1.0 deprecated functions to tf2.0
 1. tf.logging -> tf.compat.v1.logging
